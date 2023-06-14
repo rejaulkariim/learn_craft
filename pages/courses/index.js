@@ -1,9 +1,7 @@
-
-function CoursesPage() {
+function CoursePage() {
   return (
-    <div>CoursesPage</div>
+    <div>CoursePage</div>
   )
 }
 
-export default CoursesPage
-
+export default CoursePage

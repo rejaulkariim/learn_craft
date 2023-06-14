@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 let prisma;
 
+// established prisma client
 if (process.env.NODE.ENV === "production") {
   prisma = new PrismaClient();
 } else {
