@@ -1,11 +1,9 @@
 import { currencyConverter } from "@/utils/currencyConverter";
 import Image from "next/image";
-import Link from "next/link";
 import { AiFillStar } from "react-icons/ai";
+import Button from "./Button";
 
 function CourseItem({ course }) {
-  console.log(course);
-
   const {
     id,
     title,
@@ -30,7 +28,7 @@ function CourseItem({ course }) {
       </div>
 
       <div className="p-5 space-y-2">
-        <h3 className="text-2xl font-bold">{title}</h3>
+        <h3 className="text-xl font-bold">{title}</h3>
         <p className="flex justify-between">
           <span>
             by <span className="text-black font-semibold">{instructor}</span>
@@ -52,12 +50,13 @@ function CourseItem({ course }) {
           </span>
         </p>
         <p>{descriptions.substring(0, 100)}...</p>
-      <div className="flex justify-between items-center">
-        <p className="text-black font-semibold">{currencyConverter(price, "en-GB", "EUR")}</p>
-        <Link href={`/courses/${id}`}>View Details</Link>
+        <div className="flex justify-between items-center">
+          <p className="text-black font-semibold">
+            {currencyConverter(price, "en-GB", "EUR")}
+          </p>
+          <Button href={`/courses/${id}`} placeholder="View Details" />
+        </div>
       </div>
-      </div>
-
     </div>
   );
 }

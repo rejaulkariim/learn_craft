@@ -1,30 +1,31 @@
 import Link from "next/link";
+import Button from "./Button";
 
 function Navbar() {
   return (
-    <div className="p-10 h-20 bg-black text-gray-300 flex items-center">
+    <div className="p-10 h-20 text-black flex items-center">
       <div className="wrapper flex justify-between">
-        <Link className="text-white font-bold" href="/">
+        <Link className="text-2xl text-black font-bold" href="/">
           LearnCraft
         </Link>
 
         <div className="flex gap-5">
-          <Link href="/" className="hover:text-white transition-color">
+          <Link href="/" className="hover:text-black transition-color">
             Home
           </Link>
-          <Link href="/courses" className="hover:text-white transition-color">
+          <Link href="/courses" className="hover:text-black transition-color">
             Courses
           </Link>
-          <Link href="/about" className="hover:text-white transition-color">
+          <Link href="/about" className="hover:text-black transition-color">
             About
           </Link>
-          <Link href="/contact" className="hover:text-white transition-color">
+          <Link href="/contact" className="hover:text-black transition-color">
             Contact
           </Link>
         </div>
 
         <div>
-          <Link href="/login" className="hover:text-white transition-color">Login</Link>
+          <Button href="/login" className="hover:text-black transition-color" placeholder ="Login"/>
         </div>
       </div>
     </div>

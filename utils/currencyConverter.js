@@ -1,3 +1,4 @@
+// currency converter
 export const currencyConverter = (
   amount,
   locale = "en-US",
