@@ -10,7 +10,7 @@ function CoursePage({courses}) {
         <p>lorem10</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="flex flex-row gap-4">
         {courses?.map((course) => (
           <CourseItem key={course.id} course={course} />
         ))}
