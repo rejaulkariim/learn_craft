@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className="w-[1280px] mx-auto">
+    <div className="lg:w-[1280px] mx-auto">
       <Navbar />
       <Component {...pageProps} />
       <Footer />

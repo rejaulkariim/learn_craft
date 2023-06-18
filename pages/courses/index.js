@@ -1,7 +1,7 @@
 import CourseItem from "@/components/CourseItem";
 import { getAllCourses } from "@/prisma/courseController";
 
-function CoursePage({courses}) {
+function CoursesPage({courses}) {
   return (
     <div className="w-full mx-auto py-10">
       <div className="flex items-center flex-col text-center py-10 space-y-2">
@@ -10,7 +10,7 @@ function CoursePage({courses}) {
         <p>Discovering Inner Joy, Building Resilience, and Cultivating Meaningful Connections</p>
       </div>
 
-      <div className="flex flex-row gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-2 gap-y-10">
         {courses?.map((course) => (
           <CourseItem key={course.id} course={course} />
         ))}
@@ -19,7 +19,7 @@ function CoursePage({courses}) {
   );
 }
 
-export default CoursePage;
+export default CoursesPage;
 
 // get data using controller
 export const getServerSideProps = async () => {

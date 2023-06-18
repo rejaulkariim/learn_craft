@@ -13,14 +13,14 @@ datasource db {
 
 model Course {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  image String
-  title String
-  instructor String
-  durations String
-  rating Float
-  descriptions String
-  price Float
-  students Int
+    image String
+    title String
+    instructor String
+    durations String
+    rating Float
+    descriptions String
+    price Float
+    students Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

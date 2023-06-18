@@ -16,7 +16,7 @@ function CourseItem({ course }) {
     students,
   } = course;
   return (
-    <div className="w-full lg:w-[30rem] shadow-lg rounded-md overflow-hidden">
+    <div className="w-full lg:w-[29rem] shadow-lg rounded-md overflow-hidden">
       <div className="w-full h-[20rem] overflow-hidden">
         <Image
           src={image}
@@ -54,7 +54,7 @@ function CourseItem({ course }) {
           <p className="text-black font-semibold">
             {currencyConverter(price, "en-GB", "EUR")}
           </p>
-          <Button href={`/courses/${id}`} placeholder="View Details" />
+          <Button href={`/courses/${id}`} placeholder="View Details" color="primary" size="default" />
         </div>
       </div>
     </div>

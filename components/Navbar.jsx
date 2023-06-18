@@ -25,7 +25,13 @@ function Navbar() {
         </div>
 
         <div>
-          <Button href="/login" className="hover:text-black transition-color" placeholder ="Login"/>
+          <Button
+            href="/login"
+            className="hover:text-black transition-color"
+            placeholder="Login"
+            color="secondary"
+            size="default"
+          />
         </div>
       </div>
     </div>
