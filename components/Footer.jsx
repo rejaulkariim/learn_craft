@@ -1,4 +1,3 @@
-
 function Footer() {
   return (
     <div className="py-10 bg-black text-center text-gray-500">

@@ -11,7 +11,7 @@ const buttonVariants = cva("rounded-md transition-colors durations-300", {
     },
     size: {
       default: "py-3 px-6",
-      full: "",
+      full: "py-3 w-full",
     },
   },
   defaultVariants: {
