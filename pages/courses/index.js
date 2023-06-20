@@ -1,14 +1,17 @@
 import CourseItem from "@/components/CourseItem";
+import SectionHeader from "@/components/SectionHeader";
 import { getAllCourses } from "@/prisma/courseController";
 
-function CoursesPage({courses}) {
+function CoursesPage({ courses }) {
   return (
-    <div className="w-full mx-auto py-10">
-      <div className="flex items-center flex-col text-center py-10 space-y-2">
-        <span className="text-md font-bold">COURSES</span>
-        <h1 className="text-2xl font-bold">Unlocking the Secrets to a Fulfilling Life</h1>
-        <p>Discovering Inner Joy, Building Resilience, and Cultivating Meaningful Connections</p>
-      </div>
+    <div className="w-full mx-auto py-20">
+      <SectionHeader
+        span={"Courses"}
+        h1={"Unlocking the Secrets to a Fulfilling Life"}
+        p={
+          " Discovering Inner Joy, Building Resilience, and Cultivating Meaningful Connections"
+        }
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-3  gap-2 gap-y-10">
         {courses?.map((course) => (
@@ -25,7 +28,7 @@ export default CoursesPage;
 export const getServerSideProps = async () => {
   const courses = await getAllCourses();
 
-  // convert time to string 
+  // convert time to string
   const updatedCourses = courses.map((course) => ({
     ...course,
     updatedAt: course.updatedAt.toString(),
