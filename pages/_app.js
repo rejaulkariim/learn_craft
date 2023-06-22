@@ -5,12 +5,12 @@ import { SessionProvider } from "next-auth/react";
 
 export default function App({ Component, pageProps, session }) {
   return (
-    <div className="lg:w-[1280px] mx-auto">
+    <>
       <SessionProvider session={session}>
         <Navbar />
         <Component {...pageProps} />
         <Footer />
       </SessionProvider>
-    </div>
+    </>
   );
 }

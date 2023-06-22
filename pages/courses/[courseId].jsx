@@ -50,7 +50,7 @@ function CourseDetail({ course }) {
           </p>
           <div className="mt-20">
             {" "}
-            <Button href="/checkout" placeholder="Enroll Now" size="full" />
+            <Button href={`/checkout/${course.id}`} placeholder="Enroll Now" size="full" />
           </div>
         </div>
       </div>
