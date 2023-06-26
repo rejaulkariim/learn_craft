@@ -3,13 +3,13 @@ import Button from "./Button";
 
 function Navbar() {
   return (
-    <div className="p-10 h-20 text-black flex items-center">
+    <div className="md:p-10 h-20 text-black flex items-center">
       <div className="wrapper flex justify-between">
         <Link className="text-2xl text-black font-bold" href="/">
           LearnCraft
         </Link>
 
-        <div className="flex gap-5">
+        <div className="hidden md:flex gap-5">
           <Link href="/" className="hover:text-black transition-color">
             Home
           </Link>
