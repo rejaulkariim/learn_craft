@@ -2,6 +2,11 @@ import SectionHeader from "@/components/SectionHeader";
 import { getCourse } from "@/prisma/courseController";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+// STRIPE PROMISE
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 function CheckoutPage({ course }) {
   const { data: session } = useSession();
@@ -25,10 +30,30 @@ function CheckoutPage({ course }) {
     }
   }, [session, setFormData]);
 
-  const handleCheckout = async (e) =>{
-    e.preventDefault()
-    console.log(formData)
-  }
+  // checkout handler
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+    const stript = await stripePromise;
+
+    // send a post request to server
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: [course],
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mobile,
+      address: formData.address,
+      courseTitle: formData.courseTitle,
+    });
+
+    // redirect to the stripe payment
+
+    const result = await stript.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    if (result.error) {
+      console.log(result.error.message);
+    }
+  };
 
   return (
     <div className="py-10 min-h-screen">
@@ -38,7 +63,10 @@ function CheckoutPage({ course }) {
         p="Please fill out checkout form"
       />
 
-      <form onSubmit={handleCheckout} className="flex flex-col gap-5 mt-10 w-full md:w-[35rem] mx-auto">
+      <form
+        onSubmit={handleCheckout}
+        className="flex flex-col gap-5 mt-10 w-full md:w-[35rem] mx-auto"
+      >
         <div className="form-control flex flex-col gap-2">
           <label htmlFor="name" className="cursor-pointer">
             Name
@@ -77,6 +105,7 @@ function CheckoutPage({ course }) {
             className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
             type="tel"
             id="mobile"
+            required
             placeholder="+6018*******"
             value={formData.mobile}
             onChange={(e) =>
@@ -93,6 +122,7 @@ function CheckoutPage({ course }) {
             className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
             type="text"
             id="address"
+            required
             placeholder="Abc Street, NY"
             value={formData.address}
             onChange={(e) =>
