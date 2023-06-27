@@ -82,6 +82,8 @@ function CourseDetail({ course }) {
 
 export default CourseDetail;
 
+
+// GET single course
 export const getServerSideProps = async ({ query }) => {
   const course = await getCourse(query.courseId);
 
