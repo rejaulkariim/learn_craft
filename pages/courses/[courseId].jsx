@@ -1,9 +1,21 @@
-import Button from "@/components/Button";
 import { getCourse } from "@/prisma/courseController";
 import { currencyConverter } from "@/utils/currencyConverter";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { AiFillStar } from "react-icons/ai";
 
 function CourseDetail({ course }) {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  const handleEnroll = () => {
+    if (session) {
+      router.push(`/checkout/${id}`);
+    }else{
+      router.push(`/users/login?destination=/checkout/${id}`)
+    }
+  };
+
   const {
     id,
     title,
@@ -29,7 +41,10 @@ function CourseDetail({ course }) {
             <span className="font-semibold">Instructor: </span>
             {instructor}
           </p>
-          <p>{descriptions}</p>
+          <p>
+            <span className="font-bold">Course Descriptions:</span>{" "}
+            {descriptions}
+          </p>
           <p>
             {" "}
             <span className="font-semibold">Enrolled Students: </span>
@@ -38,24 +53,26 @@ function CourseDetail({ course }) {
         </div>
 
         <div className="space-y-2">
-          <p>Durations: {durations}</p>
+          <p>
+            <span className="font-bold">Durations:</span> {durations}
+          </p>
           <p className="flex items-center">
             {" "}
             <AiFillStar className="text-amber-600" />
             <span className="font-bold"> {rating}</span>
           </p>
-          <p>
-            <span className="font-bold">Price: </span>
+          <p className="text-2xl font-bold">
+            <span>Price: </span>
             {currencyConverter(price)}
           </p>
 
           <div className="mt-24">
-            {" "}
-            <Button
-              href={`/checkout/${course.id}`}
-              placeholder="Enroll Now"
-              size="default"
-            />
+            <button
+              onClick={handleEnroll}
+              className="py-3 w-full bg-black text-white rounded-lg"
+            >
+              Enroll Now
+            </button>
           </div>
         </div>
       </div>

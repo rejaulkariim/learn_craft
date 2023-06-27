@@ -1,8 +1,13 @@
 import { getSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { FiLogOut } from "react-icons/fi";
 
 function ProfilePage({ session }) {
+  const router = useRouter();
+
+  // logout
   const logoutWithGoogle = async () => {
     try {
       await signOut("google");
@@ -11,6 +16,14 @@ function ProfilePage({ session }) {
     }
   };
 
+  useEffect(() => {
+    if (!session) {
+      router.replace("/users/login");
+    }
+  }, [router, session]);
+
+
+  // if not user return null
   if (!session) {
     return null;
   }
@@ -41,6 +54,14 @@ export default ProfilePage;
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
 
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/users/login",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       session,

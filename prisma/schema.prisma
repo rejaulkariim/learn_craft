@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
+// Course Schema
 model Course {
   id String @id @default(auto()) @map("_id") @db.ObjectId
     image String
