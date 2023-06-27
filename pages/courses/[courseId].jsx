@@ -45,12 +45,17 @@ function CourseDetail({ course }) {
             <span className="font-bold"> {rating}</span>
           </p>
           <p>
-            <span className="font-bold">Price:  </span>
+            <span className="font-bold">Price: </span>
             {currencyConverter(price)}
           </p>
-          <div className="mt-20">
+
+          <div className="mt-24">
             {" "}
-            <Button href={`/checkout/${course.id}`} placeholder="Enroll Now" size="full" />
+            <Button
+              href={`/checkout/${course.id}`}
+              placeholder="Enroll Now"
+              size="default"
+            />
           </div>
         </div>
       </div>

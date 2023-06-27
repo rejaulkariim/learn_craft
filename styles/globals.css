@@ -11,3 +11,23 @@ body {
 .wrapper {
   @apply container mx-auto px-5 lg:px-0;
 }
+
+.link-item {
+  position: relative;
+}
+
+.link-item::after{
+  content: "";
+  background-color: black;
+  position: absolute;
+  height: 1px;
+  width: 0px;
+  left: 50%;
+  bottom: -3px;
+  transform: translate(-50%);
+  transition: 0.5s;
+}
+
+.link-item:hover::after{
+  width: 100%;
+}
