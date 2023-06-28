@@ -30,12 +30,12 @@ function CheckoutPage({ course }) {
     }
   }, [session, setFormData]);
 
-  // checkout handler
+  // CHECKOUT HANDLER
   const handleCheckout = async (e) => {
     e.preventDefault();
     const stript = await stripePromise;
 
-    // send a post request to server
+    // SEND A POST REQUEST TO SERVER
     const checkoutSession = await axios.post("/api/create-checkout-session", {
       items: [course],
       name: formData.name,
@@ -43,10 +43,10 @@ function CheckoutPage({ course }) {
       mobile: formData.mobile,
       address: formData.address,
       courseTitle: formData.courseTitle,
+      courseId: course.id
     });
 
-    // redirect to the stripe payment
-
+    // REDIRECT TO THE STRIPE PAYMENT
     const result = await stript.redirectToCheckout({
       sessionId: checkoutSession.data.id,
     });
@@ -174,11 +174,11 @@ function CheckoutPage({ course }) {
 
 export default CheckoutPage;
 
-// GET single course
+// GET SINGLE COURSE
 export const getServerSideProps = async ({ query }) => {
   const course = await getCourse(query.courseId);
 
-  // Convert time to string
+  // CONVERT TIME TO STRING
   const updatedCourse = {
     ...course,
     updatedAt: course.updatedAt.toString(),
