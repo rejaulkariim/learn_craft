@@ -23,7 +23,7 @@ function OrdersPage({ session, customer }) {
 
       <div className="flex flex-wrap gap-10">
         {customer.orders.map((course) => (
-          <OrderCard key={course.id} course={course}/>
+          <OrderCard key={course.id} course={course} />
         ))}
       </div>
     </div>
@@ -57,7 +57,7 @@ export const getServerSideProps = async (context) => {
     })),
   };
 
-  if (!session) {
+  if (!session || !customer) {
     return {
       redirect: {
         destination: "users/login",

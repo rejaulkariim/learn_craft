@@ -8,6 +8,36 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --primary: 16, 88%, 57%, 1;
+    --secondary: 149, 56%, 53%, 1;
+  }
+
+  .dark {
+    --background: 233, 37%, 17%, 1;
+    --foreground: 210 40% 98%;
+
+    --muted: 232, 38%, 12%, 1;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --primary: 238, 70%, 57%, 1;
+    --secondary: 181, 73%, 62%, 1;
+  }
+}
+
+@layer base {
+  * body {
+    @apply bg-background text-foreground;
+  }
+}
+
 .wrapper {
   @apply container mx-auto px-5 lg:px-0;
 }
@@ -16,18 +46,18 @@ body {
   position: relative;
 }
 
-.link-item::after{
+.link-item::after {
   content: "";
-  background-color: black;
+  background-color: hsl(var(--primary));
   position: absolute;
   height: 1px;
   width: 0px;
   left: 50%;
-  bottom: -3px;
+  bottom: -2px;
   transform: translate(-50%);
   transition: 0.5s;
 }
 
-.link-item:hover::after{
+.link-item:hover::after {
   width: 100%;
 }

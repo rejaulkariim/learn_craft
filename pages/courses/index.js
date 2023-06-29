@@ -1,10 +1,12 @@
 import CourseItem from "@/components/CourseItem";
+import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import { getAllCourses } from "@/prisma/courseController";
 
 function CoursesPage({ courses }) {
   return (
     <div className="w-full mx-auto py-20">
+      <HeroSection/>
       <SectionHeader
         span={"Courses"}
         h1={"Unlocking the Secrets to a Fulfilling Life"}
@@ -13,7 +15,7 @@ function CoursesPage({ courses }) {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-2 gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-2 gap-y-10 ">
         {courses?.map((course) => (
           <CourseItem key={course.id} course={course} />
         ))}
