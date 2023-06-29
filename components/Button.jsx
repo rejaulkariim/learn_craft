@@ -6,7 +6,7 @@ import Link from "next/link";
 const buttonVariants = cva("rounded-md transition-colors durations-300", {
   variants: {
     color: {
-      primary: "bg-primary text-white hover:bg-secondary",
+      primary: "bg-primary text-white hover:bg-secondary duration-300",
       secondary: "bg-black text-white hover:bg-gray-700",
     },
     size: {

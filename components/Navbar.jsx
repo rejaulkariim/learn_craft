@@ -54,11 +54,15 @@ function Navbar() {
               href="/users/login"
               className="hover:text-black transition-color"
               placeholder="Login"
-              color="secondary"
+              color="primary"
               size="default"
             />
           ) : (
-            <Button href="/users/profile" placeholder="Profile" />
+            <Button
+              href="/users/profile"
+              placeholder="Profile"
+              color="primary"
+            />
           )}
         </div>
       </div>
