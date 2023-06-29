@@ -13,7 +13,7 @@ function CoursesPage({ courses }) {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-2 gap-y-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-4 gap-y-10 ">
         {courses?.map((course) => (
           <CourseItem key={course.id} course={course} />
         ))}

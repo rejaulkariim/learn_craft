@@ -11,8 +11,8 @@ function CourseDetail({ course }) {
   const handleEnroll = () => {
     if (session) {
       router.push(`/checkout/${id}`);
-    }else{
-      router.push(`/users/login?destination=/checkout/${id}`)
+    } else {
+      router.push(`/users/login?destination=/checkout/${id}`);
     }
   };
 
@@ -31,35 +31,38 @@ function CourseDetail({ course }) {
     <div className="py-10 min-h-screen">
       <div
         style={{ backgroundImage: `url(${image})` }}
-        className="w-full h-[25rem] bg-no-repeat bg-cover bg-center"
+        className="w-full h-[30rem] rounded-lg bg-no-repeat bg-cover bg-center"
       />
 
       <div className="mt-10 grid md:grid-cols-2 md:gap-10">
         <div className="space-y-2">
-          <h2 className="text-4xl font-bold">{title}</h2>
+          <h2 className="text-3xl text-foreground font-bold">{title}</h2>
           <p>
-            <span className="font-semibold">Instructor: </span>
+            <span className=" text-foreground font-semibold">Instructor: </span>
             {instructor}
           </p>
           <p>
-            <span className="font-bold">Course Descriptions:</span>{" "}
+            <span className=" text-foreground font-bold">
+              Course Descriptions:
+            </span>{" "}
             {descriptions}
           </p>
           <p>
             {" "}
-            <span className="font-semibold">Enrolled Students: </span>
+            <span className=" text-foreground font-semibold">
+              Enrolled Students:{" "}
+            </span>
             {students}
           </p>
         </div>
 
         <div className="space-y-2">
-          <p>
+          <p className="text-foreground">
             <span className="font-bold">Durations:</span> {durations}
           </p>
           <p className="flex items-center">
-            {" "}
-            <AiFillStar className="text-amber-600" />
-            <span className="font-bold"> {rating}</span>
+            <AiFillStar className="text-amber-500 " />
+            <span className="font-bold"> {rating} </span>
           </p>
           <p className="text-2xl font-bold">
             <span>Price: </span>
@@ -69,7 +72,7 @@ function CourseDetail({ course }) {
           <div className="mt-24">
             <button
               onClick={handleEnroll}
-              className="py-3 w-full bg-black text-white rounded-lg"
+              className="py-3 w-full rounded-lg bg-primary text-white hover:bg-secondary duration-300"
             >
               Enroll Now
             </button>
@@ -81,7 +84,6 @@ function CourseDetail({ course }) {
 }
 
 export default CourseDetail;
-
 
 // GET single course
 export const getServerSideProps = async ({ query }) => {

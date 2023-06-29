@@ -16,8 +16,8 @@ body {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --primary: 233, 91%, 68%, 1;
-    --secondary: 233, 91%, 60%, 1;
+    --primary: 324, 82%, 32%, 1;
+    --secondary: 324, 82%, 64%, 1;
   }
 
   .dark {

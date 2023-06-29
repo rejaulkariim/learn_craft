@@ -7,7 +7,7 @@ import { FiLogOut } from "react-icons/fi";
 function ProfilePage({ session }) {
   const router = useRouter();
 
-  // logout
+  // LOGOUT
   const logoutWithGoogle = async () => {
     try {
       await signOut("google");
@@ -22,25 +22,24 @@ function ProfilePage({ session }) {
     }
   }, [router, session]);
 
-
   // if not user return null
   if (!session) {
     return null;
   }
 
   return (
-    <div className="container min-h-screen py-10 flex flex-col items-center">
+    <div className="container min-h-screen py-10 flex flex-col items-center space-y-4">
       <Image
         src={session.user.image}
         alt={session.user.name}
         height={100}
         width={100}
-        className="h-20 w-20 rounded-full border-2 border-black"
+        className="h-20 w-20 rounded-full border-2 border-primary"
       />
-      <h2 className="text-2xl font-semibold">Welcome, {session.user.name}</h2>
+      <h2 className="text-3xl font-semibold">Welcome, {session.user.name}</h2>
       <button
         onClick={logoutWithGoogle}
-        className="flex gap-2 items-center bg-black text-white py-3 px-6 rounded-md hover:bg-gray-700 duration-300"
+        className="flex gap-2 items-center bg-primary text-white py-3 px-6 rounded-lg hover:bg-secondary duration-300"
       >
         <FiLogOut />
         <span> Logout</span>

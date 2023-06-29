@@ -4,7 +4,6 @@ function Footer() {
       <p className="text-foreground">
         &copy; {new Date().getFullYear()}, LearnCraft all right reserved
       </p>
-      <small>Rejaul Karim</small>
     </div>
   );
 }

@@ -16,7 +16,7 @@ function CourseItem({ course }) {
     students,
   } = course;
   return (
-    <div className="w-full lg:w-[29rem] shadow-lg rounded-md overflow-hidden bg-muted">
+    <div className="w-full md:w-[29rem] shadow-lg rounded-lg overflow-hidden bg-muted">
       <div className="w-full h-[20rem] overflow-hidden">
         <Image
           src={image}
@@ -28,41 +28,30 @@ function CourseItem({ course }) {
       </div>
 
       <div className="p-5 space-y-2">
-        <h3 className="text-xl font-bold text-muted-foreground">{title}</h3>
+        <h3 className="text-xl font-bold text-foreground">{title}</h3>
         <p className="flex justify-between">
           <span>
-            by{" "}
-            <span className="text-black font-semibold text-muted-foreground">
-              {instructor}
-            </span>
+            Instructor:{" "}
+            <span className="text-primary font-semibold">{instructor}</span>
           </span>
           <span>
             Durations:{" "}
-            <span className="text-black font-semibold text-muted-foreground">
-              {durations}
-            </span>
+            <span className="text-primary font-semibold">{durations}</span>
           </span>
         </p>
         <p className="flex justify-between">
           <span>
             Enrolled Students:{" "}
-            <span className="text-black font-semibold text-muted-foreground">
-              {students}
-            </span>
+            <span className="text-primary  font-semibold">{students}</span>
           </span>
           <span className="flex items-center gap-1">
-            {" "}
-            <AiFillStar className="text-amber-600" />
-            <span className="text-black font-semibold text-muted-foreground">
-              Ratings: {rating}
-            </span>
+            Ratings: <AiFillStar className="text-amber-600" />
+            <span className="text-primary  font-semibold">{rating}</span>
           </span>
         </p>
-        <p className="text-muted-foreground">
-          {descriptions.substring(0, 100)}...
-        </p>
+        <p className="text-foreground">{descriptions.substring(0, 100)}...</p>
         <div className="flex justify-between items-center">
-          <p className="text-black font-semibold text-muted-foreground">
+          <p className="text-primary text-xl font-bold">
             {currencyConverter(price)}
           </p>
           <Button

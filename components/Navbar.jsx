@@ -47,12 +47,11 @@ function Navbar() {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-10">
           <ModeToggle />
           {!session ? (
             <Button
               href="/users/login"
-              className="hover:text-black transition-color"
               placeholder="Login"
               color="primary"
               size="default"

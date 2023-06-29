@@ -43,7 +43,7 @@ function CheckoutPage({ course }) {
       mobile: formData.mobile,
       address: formData.address,
       courseTitle: formData.courseTitle,
-      courseId: course.id
+      courseId: course.id,
     });
 
     // REDIRECT TO THE STRIPE PAYMENT
@@ -72,7 +72,7 @@ function CheckoutPage({ course }) {
             Name
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary"
             type="text"
             id="name"
             placeholder="John Doe"
@@ -87,7 +87,7 @@ function CheckoutPage({ course }) {
             Email
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary"
             type="email"
             id="email"
             placeholder="hello@gmail.com"
@@ -102,7 +102,7 @@ function CheckoutPage({ course }) {
             Phone Number
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary bg-transparent"
             type="tel"
             id="mobile"
             required
@@ -119,7 +119,7 @@ function CheckoutPage({ course }) {
             Address
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary bg-transparent"
             type="text"
             id="address"
             required
@@ -136,7 +136,7 @@ function CheckoutPage({ course }) {
             Course Title
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary"
             type="text"
             id="courseTitle"
             placeholder="Advance javascript course 2023"
@@ -151,7 +151,7 @@ function CheckoutPage({ course }) {
             Course Price (USD)
           </label>
           <input
-            className="outline-none border py-3 px-4 rounded-lg focus:border-gray-700"
+            className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary"
             type="text"
             id="courseTitle"
             placeholder="Advance javascript course 2023"
@@ -163,7 +163,7 @@ function CheckoutPage({ course }) {
         <button
           role="link"
           type="submit"
-          className="bg-black text-white rounded-lg py-4 w-full uppercase hover:bg-gray-700 duration-300"
+          className="bg-primary text-white rounded-lg py-4 w-full uppercase hover:bg-secondary duration-300"
         >
           Proceed to checkout
         </button>
