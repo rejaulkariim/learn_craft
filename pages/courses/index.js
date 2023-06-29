@@ -1,17 +1,15 @@
 import CourseItem from "@/components/CourseItem";
-import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import { getAllCourses } from "@/prisma/courseController";
 
 function CoursesPage({ courses }) {
   return (
     <div className="w-full mx-auto py-20">
-      <HeroSection/>
       <SectionHeader
         span={"Courses"}
-        h1={"Unlocking the Secrets to a Fulfilling Life"}
+        h1={"Explore Our Diverse Course Catalog"}
         p={
-          " Discovering Inner Joy, Building Resilience, and Cultivating Meaningful Connections"
+          "Dive into our diverse course catalog and embark on a journey of self-discovery and skill development. We offer a wide range of courses across various disciplines, carefully curated to cater to your unique interests and aspirations."
         }
       />
 

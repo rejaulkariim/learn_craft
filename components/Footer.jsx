@@ -1,9 +1,12 @@
 function Footer() {
   return (
-    <div className="py-10 bg-black text-center text-gray-500">
-      <p>&copy; {new Date().getFullYear()}, LearnCraft all right reserved</p>
+    <div className="py-10 text-center ">
+      <p className="text-foreground">
+        &copy; {new Date().getFullYear()}, LearnCraft all right reserved
+      </p>
+      <small>Rejaul Karim</small>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

@@ -1,9 +1,11 @@
 import { getAllCourses } from "@/prisma/courseController";
 import CoursesPage from "./courses";
+import HeroSection from "@/components/HeroSection";
 
-function HomePage({courses}) {
+function HomePage({ courses }) {
   return (
     <div>
+      <HeroSection />
       <CoursesPage courses={courses} />
     </div>
   );
@@ -11,12 +13,11 @@ function HomePage({courses}) {
 
 export default HomePage;
 
-
 // get data using controller
 export const getServerSideProps = async () => {
   const courses = await getAllCourses();
 
-  // convert time to string 
+  // convert time to string
   const updatedCourses = courses.map((course) => ({
     ...course,
     updatedAt: course.updatedAt.toString(),
@@ -29,4 +30,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-

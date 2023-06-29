@@ -28,7 +28,7 @@ function LoginPage({ session }) {
 
   if (!session) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen py-10">
         <SectionHeader
           span={"Login"}
           h1={"Get Started With Google"}
@@ -37,9 +37,9 @@ function LoginPage({ session }) {
         <div className="flex justify-center">
           <button
             onClick={loginWithGoogle}
-            className="flex gap-2 items-center bg-black text-white py-3 px-6 rounded-md hover:bg-gray-700 duration-300"
+            className="flex gap-4 items-center py-3 px-6 rounded-lg bg-primary text-white hover:bg-secondary duration-300"
           >
-            <FcGoogle />
+            <FcGoogle size={30} />
             <span> Sign in with Google</span>
           </button>
         </div>
