@@ -1,6 +1,6 @@
-import { getSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { getSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import { toast } from "react-hot-toast";
 import { FiLogOut } from "react-icons/fi";

@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Course Schema
+// Course Model Schema
 model Course {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   image        String
@@ -23,8 +23,19 @@ model Course {
   students     Int
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+
+  videos Video[]
 }
 
+// Video Model Schema
+model Video {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  url      String
+  courseId String @db.ObjectId
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+// User Model Schema
 model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   email     String   @unique
@@ -34,6 +45,7 @@ model User {
   orders Order[]
 }
 
+// order Model Schema
 model Order {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   transactionId String

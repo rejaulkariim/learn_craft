@@ -4,7 +4,7 @@ import { getAllCourses } from "@/prisma/courseController";
 
 function CoursesPage({ courses }) {
   return (
-    <div className="w-full mx-auto py-20">
+    <div className="w-full mx-auto">
       <SectionHeader
         span={"Courses"}
         h1={"Explore Our Diverse Course Catalog"}

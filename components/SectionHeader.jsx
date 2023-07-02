@@ -5,7 +5,7 @@ function SectionHeader({ span, h1, p }) {
         {span}
       </span>
       <h1 className="text-3xl text-foreground font-semibold">{h1}</h1>
-      <p className="text-foreground w-[45rem] mx-auto">{p}</p>
+      <p className="text-foreground md:w-[45rem] mx-auto">{p}</p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import { getSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-hot-toast";
 import SectionHeader from "@/components/SectionHeader";

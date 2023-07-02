@@ -1,16 +1,28 @@
+import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Button from "./Button";
-import { useSession } from "next-auth/react";
 import ModeToggle from "./ModeToggle";
+import { getTransition, shutterDown } from "@/utils/motion";
 
 function Navbar() {
   const { data: session } = useSession();
   return (
-    <div className="h-20 text-black flex items-center">
-      <div className="wrapper flex justify-between">
-        <Link className="link-item text-2xl text-foreground font-bold" href="/">
-          LearnCraft
-        </Link>
+    <header className="h-20 text-black flex items-center">
+      <div className="wrapper flex justify-between overflow-hidden">
+        <motion.div
+          variants={shutterDown()}
+          initial="from"
+          animate={"to"}
+          transition={getTransition()}
+        >
+          <Link
+            className="link-item text-xl text-foreground font-bold"
+            href="/"
+          >
+            LearnCraft
+          </Link>
+        </motion.div>
 
         <div className="hidden md:flex gap-5">
           <Link
@@ -47,7 +59,7 @@ function Navbar() {
           )}
         </div>
 
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-5">
           <ModeToggle />
           {!session ? (
             <Button
@@ -65,7 +77,7 @@ function Navbar() {
           )}
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

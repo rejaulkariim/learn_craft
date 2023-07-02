@@ -17,6 +17,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "framer-motion": "^10.12.18",
     "lottie-react": "^2.4.0",
     "micro": "^10.0.1",
     "next": "13.4.5",
@@ -30,6 +31,7 @@
     "stripe": "^12.10.0"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "autoprefixer": "^10.4.14",

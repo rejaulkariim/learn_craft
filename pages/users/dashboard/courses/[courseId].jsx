@@ -1,26 +1,61 @@
 import { getCourse } from "@/prisma/courseController";
 
-function CourseVideo({ course }) {
-  return <div className="min-h-screen">{course.title}</div>;
+function CourseVideo({ courseVideos }) {
+  const extractYouTubeVideoId = (url) => {
+    const match = url.match(
+      /(?:youtube\.com\/(?:embed\/|watch\?v=|watch\?.+&v=|v\/)|youtu\.be\/)([^&\n?#]+)/
+    );
+    return match ? match[1] : null;
+  };
+
+  return (
+    <div className="min-h-screen">
+      <div className="grid grid-cols-3 gap-4">
+        {courseVideos.map((video) => (
+          <div key={video.id}>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src={`https://www.youtube.com/embed/${extractYouTubeVideoId(
+                  video.url
+                )}`}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default CourseVideo;
 
 // GET single course
 export const getServerSideProps = async ({ query }) => {
-  const course = await getCourse(query.courseId);
+  const courseId = query.courseId;
 
-  // convert time to string
-  const updatedCourse = {
-    ...course,
-    updatedAt: course.updatedAt.toString(),
-    createdAt: course.createdAt.toString(),
-  };
-  console.log(updatedCourse);
+  // FIND COURSE
+  const course = await getCourse(courseId);
+
+  if (!course) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // FIND COURSE VIDEOS
+  const courseVideos = await prisma.video.findMany({
+    where: {
+      courseId: courseId,
+    },
+  });
 
   return {
     props: {
-      course: updatedCourse,
+      courseVideos,
     },
   };
 };

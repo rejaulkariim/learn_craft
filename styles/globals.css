@@ -16,8 +16,8 @@ body {
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --primary: 324, 82%, 32%, 1;
-    --secondary: 324, 82%, 64%, 1;
+    --primary: 217, 91%, 60%, 1;
+    --secondary: 239, 84%, 67%, 1;
   }
 
   .dark {
@@ -27,8 +27,8 @@ body {
     --muted: 232, 38%, 12%, 1;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --primary: 238, 70%, 57%, 1;
-    --secondary: 238, 70%, 48%, 1;
+    --primary: 258, 90%, 66%, 1;
+    --secondary: 271, 91%, 65%, 1;
   }
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .wrapper {
-  @apply container mx-auto px-5 lg:px-0;
+  @apply container mx-auto px-2 lg:px-0;
 }
 
 .link-item {
