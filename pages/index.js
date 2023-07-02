@@ -1,12 +1,14 @@
 import { getAllCourses } from "@/prisma/courseController";
 import CoursesPage from "./courses";
 import HeroSection from "@/components/HeroSection";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 function HomePage({ courses }) {
   return (
     <div>
       <HeroSection />
       <CoursesPage courses={courses} />
+      <Testimonials />
     </div>
   );
 }
