@@ -1,8 +1,9 @@
-import SectionHeader from "@/components/SectionHeader";
 import { getSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-hot-toast";
+import SectionHeader from "@/components/SectionHeader";
 
 function LoginPage({ session }) {
   const router = useRouter();
@@ -10,8 +11,10 @@ function LoginPage({ session }) {
   const loginWithGoogle = async () => {
     try {
       await signIn("google");
+      toast.success("Login successfull");
     } catch (err) {
       console.log(err.message);
+      toast.error("Something went wrong");
     }
   };
 

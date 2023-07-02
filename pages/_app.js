@@ -1,8 +1,9 @@
+import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "next-themes";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
-import { SessionProvider } from "next-auth/react";
-import { ThemeProvider } from "next-themes";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function App({ Component, pageProps, session }) {
   return (
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps, session }) {
           <Component {...pageProps} />
           <Footer />
         </SessionProvider>
+        <Toaster />
       </ThemeProvider>
     </div>
   );

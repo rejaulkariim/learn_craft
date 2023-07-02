@@ -1,7 +1,8 @@
 import { getSession, signOut } from "next-auth/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Image from "next/image";
+import { toast } from "react-hot-toast";
 import { FiLogOut } from "react-icons/fi";
 
 function ProfilePage({ session }) {
@@ -11,8 +12,10 @@ function ProfilePage({ session }) {
   const logoutWithGoogle = async () => {
     try {
       await signOut("google");
+      toast.success("Logout successfull");
     } catch (error) {
       console.log(error.message);
+      toast.error("Something went wrong");
     }
   };
 
