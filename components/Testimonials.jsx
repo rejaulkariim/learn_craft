@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { testimonials } from "@/constants";
+import Image from "next/image";
+import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SectionHeader from "../SectionHeader";
+import SectionHeader from "./SectionHeader";
 
 function Testimonials() {
   return (
@@ -22,12 +22,12 @@ function Testimonials() {
         }}
         modules={[Autoplay]}
         freeMode
-        loop
         autoplay={{
           delay: 2000,
           pauseOnMouseEnter: true,
           disableOnInteraction: false,
         }}
+        loop
       >
         {testimonials.map((testimonial, i) => (
           <SwiperSlide key={i}>

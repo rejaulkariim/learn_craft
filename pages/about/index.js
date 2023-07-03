@@ -2,11 +2,11 @@ import React from "react";
 
 export default function AboutPage() {
   return (
-    <section className="py-10 min-h-screen">
+    <section className="py-10 min-h-[700px]">
       <div className="flex justify-center">
         <div>
           <h1 className="text-2xl font-semibold">About Us</h1>
-          <p className="w-[40rem]">
+          <p className="w-[50rem]">
             Welcome to our platform! We are a team of passionate educators
             dedicated to providing high-quality online courses to help you
             enhance your skills and achieve your goals. Our mission is to make

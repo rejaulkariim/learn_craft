@@ -1,15 +1,19 @@
+import CallToAction from "@/components/CallToAction";
 import HeroSection from "@/components/HeroSection";
-import Testimonials from "@/components/Testimonials/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import { getAllCourses } from "@/prisma/courseController";
 import CoursesPage from "../courses";
 
 function HomePage({ courses }) {
   return (
-    <div>
+    <main>
       <HeroSection />
       <CoursesPage courses={courses} />
       <Testimonials />
-    </div>
+      <div className="py-10">
+        <CallToAction />
+      </div>
+    </main>
   );
 }
 
