@@ -1,9 +1,8 @@
 import { testimonials } from "@/constants";
 import Image from "next/image";
-import { Autoplay } from "swiper";
 import "swiper/css";
-import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 import SectionHeader from "./SectionHeader";
 
 function Testimonials() {
@@ -18,10 +17,9 @@ function Testimonials() {
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 10 },
           480: { slidesPerView: 2, spaceBetween: 10 },
-          600: { slidesPerView: 3.5, spaceBetween: 10 },
+          600: { slidesPerView: 3, spaceBetween: 10 },
         }}
         modules={[Autoplay]}
-        freeMode
         autoplay={{
           delay: 2000,
           pauseOnMouseEnter: true,
