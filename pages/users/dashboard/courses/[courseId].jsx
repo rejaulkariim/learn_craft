@@ -1,25 +1,16 @@
 import { getCourse } from "@/prisma/courseController";
 
 function CourseVideo({ courseVideos }) {
-  const extractYouTubeVideoId = (url) => {
-    const match = url.match(
-      /(?:youtube\.com\/(?:embed\/|watch\?v=|watch\?.+&v=|v\/)|youtu\.be\/)([^&\n?#]+)/
-    );
-    return match ? match[1] : null;
-  };
-
   return (
-    <div className="min-h-screen">
+    <div className="py-10 min-h-screen">
       <div className="grid grid-cols-3 gap-4">
         {courseVideos.map((video) => (
           <div key={video.id}>
             <div className="aspect-w-16 aspect-h-9">
               <iframe
-                src={`https://www.youtube.com/embed/${extractYouTubeVideoId(
-                  video.url
-                )}`}
+                src={`https://www.youtube.com/embed/${video.url}`}
                 title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="rounded-lg"
               ></iframe>

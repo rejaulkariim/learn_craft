@@ -5,7 +5,7 @@ export const testimonials = [
     name: "Sara Lee",
     designation: "CFO",
     company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
   },
 
   {
@@ -14,11 +14,27 @@ export const testimonials = [
     name: "Chris Brown",
     designation: "COO",
     company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
     feedback:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
+      "The MongoDB course was excellent! It covered all the essential topics with hands-on exercises. Thumbs up!",
+    name: "Chris Brown",
+    designation: "COO",
+    company: "DEF Corp",
+    image: "https://randomuser.me/api/portraits/men/3.jpg",
+  },
+  {
+    feedback:
+      "Express.js Deep Dive course exceeded my expectations. The instructor's expertise and teaching style made it enjoyable to learn.",
+    name: "Chris Brown",
+    designation: "COO",
+    company: "DEF Corp",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
+  },
+  {
+    feedback:
+      "The Full-Stack Web Development course provided a comprehensive understanding of the MERN stack. I built my first full-stack application with confidence!",
     name: "Chris Brown",
     designation: "COO",
     company: "DEF Corp",
@@ -26,23 +42,7 @@ export const testimonials = [
   },
   {
     feedback:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    feedback:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    feedback:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "The Advanced JavaScript Techniques course was fantastic! It deepened my understanding of JavaScript and improved my coding skills significantly.",
     name: "Lisa Wang",
     designation: "CTO",
     company: "456 Enterprises",

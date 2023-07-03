@@ -8,8 +8,8 @@ import { getTransition, shutterDown } from "@/utils/motion";
 function Navbar() {
   const { data: session } = useSession();
   return (
-    <header className="h-20 text-black flex items-center">
-      <div className="wrapper flex justify-between overflow-hidden">
+    <header className="h-20">
+      <div className="wrapper flex justify-between items-center overflow-hidden">
         <motion.div
           variants={shutterDown()}
           initial="from"

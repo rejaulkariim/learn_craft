@@ -1,14 +1,21 @@
 import Image from "next/image";
 
+
+
+
+
 function FeedbackCard({ testimonial }) {
   return (
-    <div className="w-[28rem] mx-auto bg-muted shadow-lg p-10 rounded-lg ">
+    <div className="w-[29rem] mx-auto bg-muted shadow-lg p-10 rounded-lg ">
       <div className="space-y-2">
         <p>{testimonial.feedback}</p>
 
         <div className="flex justify-between items-center ">
           <div>
-            <p>@ {testimonial.name}</p>
+            <p>
+              <span className="text-primary font-bold">@ </span>
+              {testimonial.name}
+            </p>
             <p>
               {testimonial.designation} <span>{testimonial.company}</span>
             </p>
@@ -25,7 +32,9 @@ function FeedbackCard({ testimonial }) {
           </div>
         </div>
       </div>
+      
     </div>
+    
   );
 }
 

@@ -1,6 +1,10 @@
-import SectionHeader from "../SectionHeader";
+import Image from "next/image";
 import { testimonials } from "@/constants";
-import FeedbackCard from "./FeedbackCard";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SectionHeader from "../SectionHeader";
 
 function Testimonials() {
   return (
@@ -10,11 +14,52 @@ function Testimonials() {
         h1="Testimonials"
         p="Words of praise of our successful students"
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <Swiper
+        breakpoints={{
+          320: { slidesPerView: 1, spaceBetween: 10 },
+          480: { slidesPerView: 2, spaceBetween: 10 },
+          600: { slidesPerView: 3.5, spaceBetween: 10 },
+        }}
+        modules={[Autoplay]}
+        freeMode
+        loop
+        autoplay={{
+          delay: 2000,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        }}
+      >
         {testimonials.map((testimonial, i) => (
-          <FeedbackCard key={i} testimonial={testimonial} />
+          <SwiperSlide key={i}>
+            <div className="h-56 flex flex-col items-center justify-center space-y-2 border-2 rounded-2xl border-accent p-6 shadow-md">
+              <div className="space-y-2">
+                <p>{testimonial.feedback}</p>
+                <div className="flex justify-between items-center ">
+                  <div>
+                    <p>
+                      <span className="text-primary font-bold">@ </span>
+                      {testimonial.name}
+                    </p>
+                    <p>
+                      {testimonial.designation}{" "}
+                      <span>{testimonial.company}</span>
+                    </p>
+                  </div>
+                  <div>
+                    <Image
+                      src={testimonial.image}
+                      alt={`${testimonial.name}`}
+                      className="w-10 h-10 rounded-full object-cover"
+                      height={40}
+                      width={40}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 }
