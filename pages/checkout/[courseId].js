@@ -1,9 +1,9 @@
 import SectionHeader from "@/components/SectionHeader";
 import { getCourse } from "@/prisma/courseController";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 // STRIPE PROMISE
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
@@ -184,6 +184,8 @@ export const getServerSideProps = async ({ query }) => {
     updatedAt: course.updatedAt.toString(),
     createdAt: course.createdAt.toString(),
   };
+
+  console.log(updatedCourse)
 
   return {
     props: {
