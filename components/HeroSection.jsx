@@ -1,10 +1,18 @@
 import Lottie from "lottie-react";
 import Button from "./Button";
 import onlineLearning from "../public/lottieFile/online-learning";
+import { motion } from "framer-motion";
+import { getTransition, shutterUp } from "@/utils/motion";
 
 function HeroSection() {
   return (
-    <div className="py-10 md:py-20">
+    <motion.div
+      variants={shutterUp()}
+      initial="from"
+      whileInView="to"
+      transition={getTransition()}
+      className="py-10 md:py-20"
+    >
       <div className="md:flex items-center flex-row-reverse">
         <div>
           <Lottie animationData={onlineLearning} loop={true} />
@@ -29,7 +37,7 @@ function HeroSection() {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

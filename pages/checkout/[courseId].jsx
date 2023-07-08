@@ -60,7 +60,7 @@ function CheckoutPage({ course }) {
       <SectionHeader
         span="Checkout"
         h1="Please provide your details"
-        p="Please fill out checkout form"
+        p="This is a demo website so you can use stripe test card to make the paymeny in the next page 🤑 card:  4242 4242 4242 4242"
       />
 
       <form

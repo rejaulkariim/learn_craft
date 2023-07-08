@@ -8,13 +8,12 @@ import SectionHeader from "@/components/SectionHeader";
 function LoginPage({ session }) {
   const router = useRouter();
 
+  // Login with google
   const loginWithGoogle = async () => {
     try {
       await signIn("google");
-      toast.success("Login successfull");
     } catch (err) {
       console.log(err.message);
-      toast.error("Something went wrong");
     }
   };
 

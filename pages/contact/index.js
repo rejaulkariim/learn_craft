@@ -1,6 +1,26 @@
+import React from "react";
+import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
 
+const initialFormData = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 function ContactPage() {
+  const [formData, setFormData] = useState(initialFormData);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="py-10 min-h-screen">
       <SectionHeader
@@ -10,7 +30,10 @@ function ContactPage() {
       />
 
       <div>
-        <form className="flex flex-col gap-5 w-full md:w-[35rem] mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-5 w-full md:w-[35rem] mx-auto"
+        >
           <div className="form-control flex flex-col gap-2">
             <label htmlFor="name" className="cursor-pointer">
               Name
@@ -20,6 +43,7 @@ function ContactPage() {
               type="text"
               id="name"
               placeholder="John Doe"
+              onChange={handleChange}
             />
           </div>
 
@@ -31,7 +55,7 @@ function ContactPage() {
               className="outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary bg-transparent"
               type="email"
               id="email"
-              placeholder="karimscoding@gmail.com"
+              placeholder="example@gmail.com"
             />
           </div>
 
@@ -39,7 +63,7 @@ function ContactPage() {
             <label htmlFor="address" className="cursor-pointer">
               Message
             </label>
-            <input
+            <textarea
               type="textarea"
               className="h-52 outline-none border border-primary py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary bg-transparent"
             />

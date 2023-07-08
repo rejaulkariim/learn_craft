@@ -4,7 +4,7 @@ import { getAllCourses } from "@/prisma/courseController";
 
 function CoursesPage({ courses }) {
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full container mx-auto">
       <SectionHeader
         span={"Courses"}
         h1={"Explore Our Diverse Course Catalog"}
@@ -13,7 +13,7 @@ function CoursesPage({ courses }) {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-4 gap-y-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-4">
         {courses?.map((course) => (
           <CourseItem key={course.id} course={course} />
         ))}

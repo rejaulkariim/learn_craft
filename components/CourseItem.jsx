@@ -1,9 +1,9 @@
 import { currencyConverter } from "@/utils/currencyConverter";
+import { getTransition, shutterUp } from "@/utils/motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 import Button from "./Button";
-import { motion } from "framer-motion";
-import { getTransition, shutterUp } from "@/utils/motion";
 
 function CourseItem({ course }) {
   const {
@@ -23,7 +23,7 @@ function CourseItem({ course }) {
       initial="from"
       whileInView="to"
       transition={getTransition()}
-      className="w-full md:w-[29rem] shadow-lg rounded-lg overflow-hidden bg-muted"
+      className="w-full md:w-[27rem] shadow-lg rounded-lg overflow-hidden bg-muted"
     >
       <div className="w-full h-[20rem] overflow-hidden">
         <Image

@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import { getSession, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { FiLogOut } from "react-icons/fi";
 
@@ -12,7 +12,7 @@ function ProfilePage({ session }) {
   const logoutWithGoogle = async () => {
     try {
       await signOut("google");
-      toast.success("Logout successfull");
+      toast.success("Logout successful");
     } catch (error) {
       console.log(error.message);
       toast.error("Something went wrong");
@@ -45,7 +45,7 @@ function ProfilePage({ session }) {
         className="flex gap-2 items-center bg-primary text-white py-3 px-6 rounded-lg hover:bg-secondary duration-300"
       >
         <FiLogOut />
-        <span> Logout</span>
+        <span>Logout</span>
       </button>
     </div>
   );

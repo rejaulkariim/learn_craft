@@ -24,7 +24,13 @@ function Navbar() {
           </Link>
         </motion.div>
 
-        <div className="hidden md:flex gap-5">
+        <motion.div
+          variants={shutterDown()}
+          initial="from"
+          animate={"to"}
+          transition={getTransition()}
+          className="hidden md:flex gap-5"
+        >
           <Link
             href="/"
             className="link-item text-foreground hover:text-primary transition-color"
@@ -57,9 +63,15 @@ function Navbar() {
               Orders
             </Link>
           )}
-        </div>
+        </motion.div>
 
-        <div className="flex items-center gap-5">
+        <motion.div
+          variants={shutterDown()}
+          initial="from"
+          animate={"to"}
+          transition={getTransition()}
+          className="flex items-center gap-5"
+        >
           <ModeToggle />
           {!session ? (
             <Button
@@ -75,7 +87,7 @@ function Navbar() {
               color="primary"
             />
           )}
-        </div>
+        </motion.div>
       </div>
     </header>
   );
